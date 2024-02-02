@@ -25,10 +25,10 @@ namespace ProvaPub.Controllers
 		}
 	
 		[HttpGet("products")]
-		public ProductList ListProducts(int page)
+		public ProductList ListProducts(int page, int rows)
 		{
 			var productService = new ProductService(_ctx);
-			return productService.ListProducts(page);
+			return productService.ListProducts(page, rows);
 		}
 
 		[HttpGet("customers")]
