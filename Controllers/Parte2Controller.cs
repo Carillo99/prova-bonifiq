@@ -28,9 +28,9 @@ namespace ProvaPub.API.Controllers
 		}
 	
 		[HttpGet("products")]
-		public ProductList ListProducts(int page)
+		public ProductList ListProducts(int page, int rows)
 		{
-			return _productService.ListProducts(page);
+			return _productService.ListProducts(page, rows);
 		}
 
 		[HttpGet("customers")]
