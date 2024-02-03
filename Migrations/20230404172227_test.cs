@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace ProvaPub.Migrations
+namespace ProvaPub.API.Migrations
 {
     /// <inheritdoc />
     public partial class test : Migration

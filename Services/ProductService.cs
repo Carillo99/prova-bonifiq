@@ -1,10 +1,11 @@
-﻿using ProvaPub.Models;
-using ProvaPub.Repository;
+﻿using ProvaPub.API.Repository;
+using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Domain.Models;
 
-namespace ProvaPub.Services
+namespace ProvaPub.API.Services
 {
-	public class ProductService
-	{
+	public class ProductService : IProductService
+    {
 		TestDbContext _ctx;
 
 		public ProductService(TestDbContext ctx)
@@ -16,6 +17,5 @@ namespace ProvaPub.Services
 		{
 			return new ProductList() {  HasNext=false, TotalCount =10, Products = _ctx.Products.ToList() };
 		}
-
 	}
 }

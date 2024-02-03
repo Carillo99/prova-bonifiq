@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProvaPub.Models;
-using ProvaPub.Repository;
-using ProvaPub.Services;
+using ProvaPub.API.Repository;
+using ProvaPub.API.Services;
+using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Domain.Models;
 
-namespace ProvaPub.Controllers
+namespace ProvaPub.API.Controllers
 {
 	
 	[ApiController]
@@ -18,24 +19,24 @@ namespace ProvaPub.Controllers
 		/// Como você faria pra criar uma estrutura melhor, com menos repetição de código? E quanto ao CustomerService/ProductService. Você acha que seria possível evitar a repetição de código?
 		/// 
 		/// </summary>
-		TestDbContext _ctx;
-		public Parte2Controller(TestDbContext ctx)
+		private readonly IProductService _productService;
+        private readonly ICustomerService _customerService;
+        public Parte2Controller(TestDbContext ctx, IProductService productService, ICustomerService customerService)
 		{
-			_ctx = ctx;
+			_productService = productService;
+			_customerService = customerService;
 		}
 	
 		[HttpGet("products")]
 		public ProductList ListProducts(int page)
 		{
-			var productService = new ProductService(_ctx);
-			return productService.ListProducts(page);
+			return _productService.ListProducts(page);
 		}
 
 		[HttpGet("customers")]
 		public CustomerList ListCustomers(int page)
 		{
-			var customerService = new CustomerService(_ctx);
-			return customerService.ListCustomers(page);
+			return _customerService.ListCustomers(page);
 		}
 	}
 }
