@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProvaPub.API.Repository;
+using ProvaPub.Domain.DTO.Report;
 using ProvaPub.Domain.Interfaces.IServices;
-using ProvaPub.Domain.Models;
 
 namespace ProvaPub.API.Services
 {
@@ -14,9 +14,9 @@ namespace ProvaPub.API.Services
             _ctx = ctx;
         }
 
-        public CustomerList ListCustomers(int page)
+        public CustomerDTOList ListCustomers(int page)
         {
-            return new CustomerList() { HasNext = false, TotalCount = 10, Customers = _ctx.Customers.ToList() };
+            return new CustomerDTOList() { HasNext = false, TotalCount = 10, Customers = _ctx.Customers.ToList() };
         }
 
         public async Task<bool> CanPurchase(int customerId, decimal purchaseValue)

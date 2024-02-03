@@ -1,10 +1,10 @@
 ﻿using ProvaPub.API.Repository;
+using ProvaPub.Domain.DTO.Report;
 using ProvaPub.Domain.Interfaces.IServices;
-using ProvaPub.Domain.Models;
 
 namespace ProvaPub.API.Services
 {
-	public class ProductService : IProductService
+    public class ProductService : IProductService
     {
 		TestDbContext _ctx;
 
@@ -13,9 +13,9 @@ namespace ProvaPub.API.Services
 			_ctx = ctx;
 		}
 
-		public ProductList  ListProducts(int page, int rows)
+		public ProductDTOList  ListProducts(int page, int rows)
 		{
-            return new ProductList() {  HasNext=false, TotalCount = rows, Products = _ctx.Products
+            return new ProductDTOList() {  HasNext=false, TotalCount = rows, Products = _ctx.Products
 				     .Skip(page * rows)
                      .Take(rows)
 					 .ToList() };

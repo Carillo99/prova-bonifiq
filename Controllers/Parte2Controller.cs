@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProvaPub.API.Repository;
 using ProvaPub.API.Services;
+using ProvaPub.Domain.DTO.Report;
 using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Domain.Models;
 
 namespace ProvaPub.API.Controllers
 {
-	
-	[ApiController]
+
+    [ApiController]
 	[Route("[controller]")]
 	public class Parte2Controller :  ControllerBase
 	{
@@ -28,13 +29,13 @@ namespace ProvaPub.API.Controllers
 		}
 	
 		[HttpGet("products")]
-		public ProductList ListProducts(int page, int rows)
+		public ProductDTOList ListProducts(int page, int rows)
 		{
 			return _productService.ListProducts(page, rows);
 		}
 
 		[HttpGet("customers")]
-		public CustomerList ListCustomers(int page)
+		public CustomerDTOList ListCustomers(int page)
 		{
 			return _customerService.ListCustomers(page);
 		}
