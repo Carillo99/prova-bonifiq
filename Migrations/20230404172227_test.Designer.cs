@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProvaPub.Repository;
+using ProvaPub.API.Repository;
 
 #nullable disable
 
-namespace ProvaPub.Migrations
+namespace ProvaPub.API.Migrations
 {
     [DbContext(typeof(TestDbContext))]
     [Migration("20230404172227_test")]
@@ -24,7 +24,7 @@ namespace ProvaPub.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ProvaPub.Models.Customer", b =>
+            modelBuilder.Entity("ProvaPub.API.Models.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -143,7 +143,7 @@ namespace ProvaPub.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ProvaPub.Models.Product", b =>
+            modelBuilder.Entity("ProvaPub.API.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

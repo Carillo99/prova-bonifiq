@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProvaPub.Models;
-using ProvaPub.Repository;
+using ProvaPub.API.Repository;
+using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Domain.Models;
 
-namespace ProvaPub.Services
+namespace ProvaPub.API.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
         TestDbContext _ctx;
 

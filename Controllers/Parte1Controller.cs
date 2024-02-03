@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProvaPub.Services;
+using ProvaPub.Domain.Interfaces.IServices;
 
-namespace ProvaPub.Controllers
+namespace ProvaPub.API.Controllers
 {
 	/// <summary>
 	/// Ao rodar o código abaixo o serviço deveria sempre retornar um número diferente, mas ele fica retornando sempre o mesmo número.
@@ -11,9 +11,9 @@ namespace ProvaPub.Controllers
 	[Route("[controller]")]
 	public class Parte1Controller :  ControllerBase
 	{
-		private readonly RandomService _randomService;
+		private readonly IRandomService _randomService;
 
-		public Parte1Controller(RandomService randomService)
+		public Parte1Controller(IRandomService randomService)
 		{
 			_randomService = randomService;
 		}

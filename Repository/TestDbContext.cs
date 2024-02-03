@@ -1,10 +1,8 @@
 ﻿using Bogus;
 using Microsoft.EntityFrameworkCore;
-using ProvaPub.Models;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+using ProvaPub.Domain.Models;
 
-namespace ProvaPub.Repository
+namespace ProvaPub.API.Repository
 {
 
 	public class TestDbContext : DbContext

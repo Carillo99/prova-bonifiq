@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ProvaPub.Migrations
+namespace ProvaPub.API.Migrations
 {
     /// <inheritdoc />
     public partial class testpt2 : Migration
