@@ -13,12 +13,13 @@ namespace ProvaPub.API.Services
 			_ctx = ctx;
 		}
 
-		public ProductDTOList  ListProducts(int page, int rows)
+		public ProductDTOList  ListProducts(FilterList filter)
 		{
-            return new ProductDTOList() {  HasNext=false, TotalCount = rows, Products = _ctx.Products
-				     .Skip(page * rows)
-                     .Take(rows)
-					 .ToList() };
+			var productDTOList = _ctx.Products
+					 .Skip(filter.Page * filter.Rows)
+					 .Take(filter.Rows + 1);
+
+            return new ProductDTOList(productDTOList, filter.Rows);
 		}
 	}
 }

@@ -14,9 +14,13 @@ namespace ProvaPub.API.Services
             _ctx = ctx;
         }
 
-        public CustomerDTOList ListCustomers(int page)
+        public CustomerDTOList ListCustomers(FilterList filter)
         {
-            return new CustomerDTOList() { HasNext = false, TotalCount = 10, Customers = _ctx.Customers.ToList() };
+            var customerDTOList = _ctx.Customers
+                     .Skip(filter.Page * filter.Rows)
+                     .Take(filter.Rows + 1);
+
+            return new CustomerDTOList(customerDTOList, filter.Rows);
         }
 
         public async Task<bool> CanPurchase(int customerId, decimal purchaseValue)

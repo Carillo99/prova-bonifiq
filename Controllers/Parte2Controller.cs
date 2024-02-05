@@ -28,16 +28,16 @@ namespace ProvaPub.API.Controllers
 			_customerService = customerService;
 		}
 	
-		[HttpGet("products")]
-		public ProductDTOList ListProducts(int page, int rows)
+		[HttpPost("products")]
+		public ProductDTOList ListProducts(FilterList filter)
 		{
-			return _productService.ListProducts(page, rows);
+			return _productService.ListProducts(filter);
 		}
 
-		[HttpGet("customers")]
-		public CustomerDTOList ListCustomers(int page)
-		{
-			return _customerService.ListCustomers(page);
+		[HttpPost("customers")]
+		public CustomerDTOList ListCustomers(FilterList filter)
+        {
+			return _customerService.ListCustomers(filter);
 		}
 	}
 }
