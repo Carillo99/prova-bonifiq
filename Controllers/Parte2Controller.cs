@@ -22,7 +22,7 @@ namespace ProvaPub.API.Controllers
 		/// </summary>
 		private readonly IProductService _productService;
         private readonly ICustomerService _customerService;
-        public Parte2Controller(TestDbContext ctx, IProductService productService, ICustomerService customerService)
+        public Parte2Controller(IProductService productService, ICustomerService customerService)
 		{
 			_productService = productService;
 			_customerService = customerService;
