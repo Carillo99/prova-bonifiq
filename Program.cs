@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using ProvaPub.API.Repository;
 using ProvaPub.API.Services;
+using ProvaPub.API.Services.Payment;
 using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Domain.Interfaces.IServices.IPayment;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddTransient<IOrderService, OrderService>();
 builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<IRandomService, RandomService>();
+builder.Services.AddTransient<IPaymentStrategy, PaymentStrategy>();
+
 builder.Services.AddDbContext<TestDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("ctx")));
 var app = builder.Build();
