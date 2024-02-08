@@ -32,6 +32,7 @@ namespace ProvaPub.API.Repository
 			}
 			return result.ToArray();
 		}
+
 		private Product[] getProductSeed()
 		{
 			List<Product> result = new();
