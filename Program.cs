@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using ProvaPub.API.Repository;
 using ProvaPub.API.Services;
 using ProvaPub.API.Services.Payment;
 using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Domain.Interfaces.IServices.IPayment;
+using ProvaPub.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
