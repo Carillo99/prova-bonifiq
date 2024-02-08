@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProvaPub.API.Repository;
 using ProvaPub.API.Services;
 using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Domain.Models;
