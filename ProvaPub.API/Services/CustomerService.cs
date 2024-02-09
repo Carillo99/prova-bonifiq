@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProvaPub.Domain.DTO;
+using ProvaPub.API.Validators;
 using ProvaPub.Domain.DTO.Report;
+using ProvaPub.Domain.Exceptions;
 using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Infrastructure.Context;
 using ProvaPub.Infrastructure.Repository;
@@ -16,10 +17,10 @@ namespace ProvaPub.API.Services
             _unitOfWork = unitOfWork;
         }
 
-        public CustomerDTOList ListCustomers(FilterList filter)
+        public CustomerDTOList ListCustomers(FilterDTO filter)
         {
-            if (filter?.Page < 0) throw new Exception("Número da páginas inválidas.");
-            if (filter?.Rows < 0) throw new Exception("Número de linhas inválido.");
+            var validationResult = new FilterListValidator().Validate(filter);
+            if (!validationResult.IsValid) throw new ValidationExceptionList(validationResult);
 
             var customerDTOList = _unitOfWork.CustomersRepository.ListAll()
                      .Skip(filter.Page * filter.Rows)

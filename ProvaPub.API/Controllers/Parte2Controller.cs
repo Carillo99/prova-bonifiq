@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProvaPub.API.Services;
-using ProvaPub.Domain.DTO;
 using ProvaPub.Domain.DTO.Report;
 using ProvaPub.Domain.Interfaces.IServices;
 
@@ -28,13 +27,13 @@ namespace ProvaPub.API.Controllers
 		}
 	
 		[HttpPost("products")]
-		public ProductDTOList ListProducts(FilterList filter)
+		public ProductDTOList ListProducts(FilterDTO filter)
 		{
 			return _productService.ListProducts(filter);
 		}
 
 		[HttpPost("customers")]
-		public CustomerDTOList ListCustomers(FilterList filter)
+		public CustomerDTOList ListCustomers(FilterDTO filter)
         {
 			return _customerService.ListCustomers(filter);
 		}
