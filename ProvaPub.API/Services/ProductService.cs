@@ -1,5 +1,6 @@
-﻿using ProvaPub.Domain.DTO;
+﻿using ProvaPub.API.Validators;
 using ProvaPub.Domain.DTO.Report;
+using ProvaPub.Domain.Exceptions;
 using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Infrastructure.Repository;
 
@@ -14,10 +15,10 @@ namespace ProvaPub.API.Services
             _unitOfWork = unitOfWork;
 		}
 
-		public ProductDTOList  ListProducts(FilterList filter)
+		public ProductDTOList  ListProducts(FilterDTO filter)
         {
-            if (filter?.Page < 0) throw new Exception("Número da página inválido.");
-            if (filter?.Rows < 0) throw new Exception("Número de linhas inválido.");
+            var validationResult = new FilterListValidator().Validate(filter);
+            if (!validationResult.IsValid) throw new ValidationExceptionList(validationResult);
 
             var productDTOList = _unitOfWork.ProductsRepository.ListAll()
                      .Skip(filter.Page * filter.Rows)

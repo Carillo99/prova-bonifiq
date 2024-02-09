@@ -1,6 +1,6 @@
-﻿namespace ProvaPub.Domain.DTO
+﻿namespace ProvaPub.Domain.DTO.Report
 {
-    public class FilterList
+    public class FilterDTO
     {
         public int Rows { get; set; }
         public int Page { get; set; }
