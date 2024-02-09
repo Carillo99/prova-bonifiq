@@ -1,0 +1,12 @@
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\bin\Debug\net6.0\ProvaPub.Domain.deps.json
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\bin\Debug\net6.0\ProvaPub.Domain.dll
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\bin\Debug\net6.0\ProvaPub.Domain.pdb
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.AssemblyInfoInputs.cache
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.AssemblyInfo.cs
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.csproj.CoreCompileInputs.cache
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.sourcelink.json
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.dll
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\refint\ProvaPub.Domain.dll
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ProvaPub.Domain.pdb
+C:\Desenvolvedor\Bonifiq\prova-bonifiq\ProvaPub.Domain\obj\Debug\net6.0\ref\ProvaPub.Domain.dll
