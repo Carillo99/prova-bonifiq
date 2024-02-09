@@ -31,7 +31,7 @@ namespace ProvaPub.Api.IntegrationTests.ControllerTests
             // Arrange
             var client = _factory.GetAnonymousClient();
 
-            var filter = new FilterList() { Page = 0, Rows = rows };
+            var filter = new FilterDTO() { Page = 0, Rows = rows };
             var jsonContent = JsonConvert.SerializeObject(filter);
             var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
@@ -53,7 +53,7 @@ namespace ProvaPub.Api.IntegrationTests.ControllerTests
             // Arrange
             var client = _factory.GetAnonymousClient();
 
-            var filter = new FilterList() { Page = 0, Rows = rows };
+            var filter = new FilterDTO() { Page = 0, Rows = rows };
             var jsonContent = JsonConvert.SerializeObject(filter);
             var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
