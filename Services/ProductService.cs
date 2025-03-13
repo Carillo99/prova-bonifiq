@@ -5,6 +5,7 @@ namespace ProvaPub.Services
 {
 	public class ProductService
 	{
+        const int Rows = 10;
 		TestDbContext _ctx;
 
 		public ProductService(TestDbContext ctx)
@@ -13,9 +14,22 @@ namespace ProvaPub.Services
 		}
 
 		public ProductList  ListProducts(int page)
-		{
-			return new ProductList() {  HasNext=false, TotalCount =10, Products = _ctx.Products.ToList() };
-		}
+        {
+            var productList = new ProductList();
 
+            try
+			{
+                productList.Products = _ctx.Products.Skip((page - 1) * Rows).ToList();
+                productList.HasNext = productList.Products.Count > Rows;
+                productList.Products = productList.Products.Take(Rows).ToList();
+                productList.TotalCount = productList.Products.Count;
+            }
+			catch (Exception)
+			{
+				throw;
+			}
+
+			return productList;
+        }
 	}
 }
