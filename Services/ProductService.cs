@@ -1,4 +1,5 @@
-﻿using ProvaPub.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ProvaPub.Models;
 using ProvaPub.Repository;
 
 namespace ProvaPub.Services
@@ -8,9 +9,13 @@ namespace ProvaPub.Services
         const int Rows = 10;
 		TestDbContext _ctx;
 
-		public ProductService(TestDbContext ctx)
-		{
-			_ctx = ctx;
+		public ProductService()
+        {
+            var contextOptions = new DbContextOptionsBuilder<TestDbContext>()
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Teste;Trusted_Connection=True;")
+                .Options;
+
+            _ctx = new TestDbContext(contextOptions);
 		}
 
 		public ProductList  ListProducts(int page)
