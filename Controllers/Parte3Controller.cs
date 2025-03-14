@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using ProvaPub.Domain.DTO;
 using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Domain.Models;
@@ -27,9 +28,11 @@ namespace ProvaPub.Api.Controllers
         }
 
         [HttpPost("orders")]
-        public async Task<Order> PlaceOrder(OrderDTO mode)
+        public async Task<IActionResult> PlaceOrder(OrderDTO mode)
         {
-            return await _orderService.PayOrder(mode);
+            var response = await _orderService.PayOrder(mode);
+            if (response.IsSucceed) return Ok(response);
+            return BadRequest(response);
         }
 	}
 }

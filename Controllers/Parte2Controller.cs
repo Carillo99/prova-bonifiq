@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using ProvaPub.Domain.DTO.Report;
 using ProvaPub.Domain.Interfaces.IServices;
 
@@ -27,15 +28,19 @@ namespace ProvaPub.Api.Controllers
         }
 
         [HttpPost("products")]
-		public ProductDTOList ListProducts(FilterDTO filter)
+        public async Task<IActionResult> ListProducts(FilterDTO filter)
 		{
-			return _productService.ListProducts(filter);
-		}
+			var response = await _productService.ListProducts(filter);
+            if (response.IsSucceed) return Ok(response);
+            return BadRequest(response);
+        }
 
 		[HttpPost("customers")]
-		public CustomerDTOList ListCustomers(FilterDTO filter)
+        public async Task<IActionResult> ListCustomers(FilterDTO filter)
         {
-			return _customerService.ListCustomers(filter);
-		}
+            var response = await _customerService.ListCustomers(filter);
+            if (response.IsSucceed) return Ok(response);
+            return BadRequest(response);
+        }
 	}
 }

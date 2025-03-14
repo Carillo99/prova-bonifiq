@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<IOrderService, OrderService>();
-builder.Services.AddSingleton<RandomService>();
+builder.Services.AddTransient<IRandomService, RandomService>();
 builder.Services.AddScoped<IPaymentMethodResolverService, PaymentMethodResolverService>();
 builder.Services.AddScoped<IPaymentMethodService, CreditcardService>();
 builder.Services.AddScoped<IPaymentMethodService, PaypalService>();
