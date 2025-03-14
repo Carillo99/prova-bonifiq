@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub", "ProvaPub.csproj", "{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Api", "ProvaPub.Api.csproj", "{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Infrastructure", "..\ProvaPub.Infrastructure\ProvaPub.Infrastructure.csproj", "{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Domain", "..\ProvaPub.Domain\ProvaPub.Domain.csproj", "{C8DEEFEA-7976-4E72-8471-434DE70D2C86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8DEEFEA-7976-4E72-8471-434DE70D2C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8DEEFEA-7976-4E72-8471-434DE70D2C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8DEEFEA-7976-4E72-8471-434DE70D2C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8DEEFEA-7976-4E72-8471-434DE70D2C86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

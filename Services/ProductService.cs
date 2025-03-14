@@ -1,33 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ProvaPub.Models;
-using ProvaPub.Repository;
+﻿using ProvaPub.Domain.DTO.Report;
+using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Infrastructure.Repository;
 
-namespace ProvaPub.Services
+namespace ProvaPub.Api.Services
 {
-	public class ProductService
-	{
-        const int Rows = 10;
-		TestDbContext _ctx;
+    public class ProductService : IProductService
+    {
+        private readonly IUnitOfWork _unitOfWork;
 
-		public ProductService()
+        public ProductService(IUnitOfWork unitOfWork)
         {
-            var contextOptions = new DbContextOptionsBuilder<TestDbContext>()
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Teste;Trusted_Connection=True;")
-                .Options;
+            _unitOfWork = unitOfWork;
+        }
 
-            _ctx = new TestDbContext(contextOptions);
-		}
-
-		public ProductList  ListProducts(int page)
+		public ProductDTOList ListProducts(FilterDTO filter)
         {
-            var productList = new ProductList();
+            var productList = new ProductDTOList();
 
             try
-			{
-                productList.Products = _ctx.Products.Skip((page - 1) * Rows).ToList();
-                productList.HasNext = productList.Products.Count > Rows;
-                productList.Products = productList.Products.Take(Rows).ToList();
-                productList.TotalCount = productList.Products.Count;
+            {
+                var productDTOList = _unitOfWork.ProductsRepository
+                         .ListAll()
+                         .Skip((filter.Page - 1) * filter.Rows);
+
+                productList = new ProductDTOList(productDTOList, filter.Rows);
             }
 			catch (Exception)
 			{

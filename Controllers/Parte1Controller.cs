@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProvaPub.Services;
+using ProvaPub.Api.Services;
 
-namespace ProvaPub.Controllers
+namespace ProvaPub.Api.Controllers
 {
 	/// <summary>
 	/// Ao rodar o código abaixo o serviço deveria sempre retornar um número diferente, mas ele fica retornando sempre o mesmo número.
