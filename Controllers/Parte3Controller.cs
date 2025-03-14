@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProvaPub.Api.Services;
+using ProvaPub.Domain.DTO;
+using ProvaPub.Domain.Interfaces.IServices;
 using ProvaPub.Domain.Models;
-using ProvaPub.Infrastructure.Context;
 
 namespace ProvaPub.Api.Controllers
 {
@@ -19,17 +18,18 @@ namespace ProvaPub.Api.Controllers
     [ApiController]
 	[Route("[controller]")]
 	public class Parte3Controller :  ControllerBase
-	{
-		[HttpGet("orders")]
-		public async Task<Order> PlaceOrder(string paymentMethod, decimal paymentValue, int customerId)
-		{
-            var contextOptions = new DbContextOptionsBuilder<TestDbContext>()
-    .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Teste;Trusted_Connection=True;")
-    .Options;
+    {
+        private readonly IOrderService _orderService;
 
-            using var context = new TestDbContext(contextOptions);
+        public Parte3Controller(IOrderService orderService)
+        {
+            _orderService = orderService;
+        }
 
-            return await new OrderService(context).PayOrder(paymentMethod, paymentValue, customerId);
-		}
+        [HttpPost("orders")]
+        public async Task<Order> PlaceOrder(OrderDTO mode)
+        {
+            return await _orderService.PayOrder(mode);
+        }
 	}
 }
