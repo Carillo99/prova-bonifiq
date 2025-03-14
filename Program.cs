@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using ProvaPub.Repository;
-using ProvaPub.Services;
+using ProvaPub.Api.Services;
+using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Infrastructure.Context;
+using ProvaPub.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ICustomerService, CustomerService>();
+builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddSingleton<RandomService>();
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 builder.Services.AddDbContext<TestDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("ctx")));
 var app = builder.Build();

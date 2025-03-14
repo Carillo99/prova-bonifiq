@@ -1,7 +1,7 @@
-﻿using ProvaPub.Models;
-using ProvaPub.Repository;
+﻿using ProvaPub.Domain.Models;
+using ProvaPub.Infrastructure.Context;
 
-namespace ProvaPub.Services
+namespace ProvaPub.Api.Services
 {
 	public class OrderService
 	{

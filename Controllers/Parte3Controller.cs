@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProvaPub.Models;
-using ProvaPub.Repository;
-using ProvaPub.Services;
+using ProvaPub.Api.Services;
+using ProvaPub.Domain.Models;
+using ProvaPub.Infrastructure.Context;
 
-namespace ProvaPub.Controllers
+namespace ProvaPub.Api.Controllers
 {
 
     /// <summary>

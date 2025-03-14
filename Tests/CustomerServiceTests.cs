@@ -1,4 +1,4 @@
-﻿namespace ProvaPub.Tests
+﻿namespace ProvaPub.Api.Tests
 {
     public class CustomerServiceTests
     {

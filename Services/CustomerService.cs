@@ -1,21 +1,36 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ProvaPub.Models;
-using ProvaPub.Repository;
+﻿using ProvaPub.Domain.DTO.Report;
+using ProvaPub.Domain.Interfaces.IServices;
+using ProvaPub.Infrastructure.Repository;
 
-namespace ProvaPub.Services
+namespace ProvaPub.Api.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
-        TestDbContext _ctx;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CustomerService(TestDbContext ctx)
+        public CustomerService(IUnitOfWork unitOfWork)
         {
-            _ctx = ctx;
+            _unitOfWork = unitOfWork;
         }
 
-        public CustomerList ListCustomers(int page)
+        public CustomerDTOList ListCustomers(FilterDTO filter)
         {
-            return new CustomerList() { HasNext = false, TotalCount = 10, Customers = _ctx.Customers.ToList() };
+            var customerList = new CustomerDTOList();
+
+            try
+            {
+                var customerDTOList = _unitOfWork.CustomersRepository
+                         .ListAll()
+                         .Skip((filter.Page - 1) * filter.Rows);
+
+                customerList = new CustomerDTOList(customerDTOList, filter.Rows);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return customerList;
         }
 
         public async Task<bool> CanPurchase(int customerId, decimal purchaseValue)
@@ -25,17 +40,17 @@ namespace ProvaPub.Services
             if (purchaseValue <= 0) throw new ArgumentOutOfRangeException(nameof(purchaseValue));
 
             //Business Rule: Non registered Customers cannot purchase
-            var customer = await _ctx.Customers.FindAsync(customerId);
+            var customer = await _unitOfWork.CustomersRepository.FindAsync(s => s.Id == customerId);
             if (customer == null) throw new InvalidOperationException($"Customer Id {customerId} does not exists");
 
             //Business Rule: A customer can purchase only a single time per month
             var baseDate = DateTime.UtcNow.AddMonths(-1);
-            var ordersInThisMonth = await _ctx.Orders.CountAsync(s => s.CustomerId == customerId && s.OrderDate >= baseDate);
+            var ordersInThisMonth = await _unitOfWork.OrdersRepository.CountAsync(s => s.CustomerId == customerId && s.OrderDate >= baseDate);
             if (ordersInThisMonth > 0)
                 return false;
 
             //Business Rule: A customer that never bought before can make a first purchase of maximum 100,00
-            var haveBoughtBefore = await _ctx.Customers.CountAsync(s => s.Id == customerId && s.Orders.Any());
+            var haveBoughtBefore = await _unitOfWork.CustomersRepository.CountAsync(s => s.Id == customerId && s.Orders.Any());
             if (haveBoughtBefore == 0 && purchaseValue > 100)
                 return false;
 
