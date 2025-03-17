@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Api", "ProvaPub.Api.csproj", "{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Api", "ProvaPub.Api\ProvaPub.Api.csproj", "{BF0C6C17-A860-47B0-BF84-1FBB2E26742A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Infrastructure", "..\ProvaPub.Infrastructure\ProvaPub.Infrastructure.csproj", "{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Infrastructure", "ProvaPub.Infrastructure\ProvaPub.Infrastructure.csproj", "{E96A864E-8B41-4063-81FD-FBEF7A8E6E24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Domain", "..\ProvaPub.Domain\ProvaPub.Domain.csproj", "{C8DEEFEA-7976-4E72-8471-434DE70D2C86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Domain", "ProvaPub.Domain\ProvaPub.Domain.csproj", "{C8DEEFEA-7976-4E72-8471-434DE70D2C86}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{422BC7AF-EFD0-4E73-A16C-CB8D0C987E65}"
 EndProject
@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{F5B90F62
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{E9B6C7CE-83AD-49F6-80CA-9BD47B1501CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Service", "..\ProvaPub.Service\ProvaPub.Service.csproj", "{780D42C6-FAC4-4448-B706-A8E1902D0696}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Service", "ProvaPub.Service\ProvaPub.Service.csproj", "{780D42C6-FAC4-4448-B706-A8E1902D0696}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{023BE17F-B061-4ECC-9908-CCE37D35DA60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Application.UnitTest", "..\ProvaPub.Application.UnitTest\ProvaPub.Application.UnitTest.csproj", "{7FD78749-E33D-40F0-88A1-758D33335136}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaPub.Application.UnitTest", "ProvaPub.Application.UnitTest\ProvaPub.Application.UnitTest.csproj", "{FF007837-722C-469C-868C-C7478CCAD2CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{780D42C6-FAC4-4448-B706-A8E1902D0696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{780D42C6-FAC4-4448-B706-A8E1902D0696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{780D42C6-FAC4-4448-B706-A8E1902D0696}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FD78749-E33D-40F0-88A1-758D33335136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FD78749-E33D-40F0-88A1-758D33335136}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FD78749-E33D-40F0-88A1-758D33335136}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FD78749-E33D-40F0-88A1-758D33335136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF007837-722C-469C-868C-C7478CCAD2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF007837-722C-469C-868C-C7478CCAD2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF007837-722C-469C-868C-C7478CCAD2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF007837-722C-469C-868C-C7478CCAD2CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,7 +64,7 @@ Global
 		{F5B90F62-9E44-4622-B8FB-6057F8DF3DAB} = {422BC7AF-EFD0-4E73-A16C-CB8D0C987E65}
 		{E9B6C7CE-83AD-49F6-80CA-9BD47B1501CB} = {422BC7AF-EFD0-4E73-A16C-CB8D0C987E65}
 		{780D42C6-FAC4-4448-B706-A8E1902D0696} = {E9B6C7CE-83AD-49F6-80CA-9BD47B1501CB}
-		{7FD78749-E33D-40F0-88A1-758D33335136} = {023BE17F-B061-4ECC-9908-CCE37D35DA60}
+		{FF007837-722C-469C-868C-C7478CCAD2CF} = {023BE17F-B061-4ECC-9908-CCE37D35DA60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {508154CE-59FC-48C4-A288-C3D88E9607FE}
