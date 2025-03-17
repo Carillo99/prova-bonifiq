@@ -25,7 +25,7 @@ namespace ProvaPub.Api.Controllers
         [HttpGet("CanPurchase")]
 		public async Task<bool> CanPurchase(int customerId, decimal purchaseValue)
 		{
-			return await _customerService.CanPurchase(customerId, purchaseValue);
+			return await _customerService.CanPurchase(customerId, purchaseValue, DateTime.UtcNow);
 		}
 	}
 }
